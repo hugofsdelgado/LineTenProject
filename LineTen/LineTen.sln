@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineTen.Domain.Test", "..\LineTen\test\LineTen.Domain.Test\LineTen.Domain.Test.csproj", "{3444DBF3-8F69-4D1C-928A-BF0DA751B7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineTen.Domain", "..\LineTen\src\LineTen.Domain\LineTen.Domain.csproj", "{A352D9C0-6CC9-4F30-92A9-347C8540FE8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3444DBF3-8F69-4D1C-928A-BF0DA751B7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3444DBF3-8F69-4D1C-928A-BF0DA751B7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3444DBF3-8F69-4D1C-928A-BF0DA751B7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3444DBF3-8F69-4D1C-928A-BF0DA751B7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A352D9C0-6CC9-4F30-92A9-347C8540FE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A352D9C0-6CC9-4F30-92A9-347C8540FE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A352D9C0-6CC9-4F30-92A9-347C8540FE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A352D9C0-6CC9-4F30-92A9-347C8540FE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2018C46-CC4A-49E6-A371-68B6623A6DB4}
+	EndGlobalSection
+EndGlobal
