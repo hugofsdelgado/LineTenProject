@@ -3,3 +3,9 @@ LineTen/src/LineTen.Domain/obj
 LineTen/test/LineTen.Domain.Test/bin
 LineTen/test/LineTen.Domain.Test/obj
 LineTen/.vs
+LineTen/LineTen.API/bin
+LineTen/LineTen.API/obj
+LineTen/LineTen.Application/bin
+LineTen/LineTen.Infrastructure/bin
+LineTen/LineTen.Infrastructure/obj
+LineTen/LineTen.Application/obj
