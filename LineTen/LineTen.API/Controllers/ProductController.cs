@@ -28,7 +28,7 @@ namespace LineTen.API.Controllers
       }
       catch (Exception ex)
       {
-        return Problem(ex.Message);
+        return Problem(ex.Message, statusCode: 500);
       }
 
     }
@@ -42,7 +42,7 @@ namespace LineTen.API.Controllers
       }
       catch (Exception ex)
       {
-        return Problem(ex.Message);
+        return Problem(ex.Message, statusCode: 500);
       }
     }
 
@@ -55,7 +55,7 @@ namespace LineTen.API.Controllers
       }
       catch (Exception ex)
       {
-        return Problem(ex.Message);
+        return Problem(ex.Message, statusCode:500);
       }
     }
 
