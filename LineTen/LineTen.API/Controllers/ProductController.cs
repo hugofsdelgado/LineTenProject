@@ -1,99 +1,63 @@
 ﻿using LineTen.Application.Interface;
 using LineTen.Domain.Entitites;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LineTen.API.Controllers
 {
-    public class ProductController : Controller
+  public class ProductController : Controller
+  {
+    private readonly IProductService productService;
+
+    public ProductController(IProductService productService)
     {
-        private readonly IProductService productService;
-
-        public ProductController(IProductService productService)
-        {
-            this.productService = productService;
-        }
-        // GET: api/<MembersController>
-        [HttpGet]
-        public ActionResult<IList<Products>> Get()
-        {
-            return Ok(this.productService.GetProducts());
-        }
-
-
-        // GET: ProductController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: ProductController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ProductController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ProductController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ProductController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ProductController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ProductController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ProductController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      this.productService = productService;
     }
+
+    [HttpGet("GetProducts")]
+    public List<Product> GetProducts()
+    {
+      return this.productService.GetProducts();
+    }
+
+    [HttpPost("CreateProduct")]
+    public ActionResult<Product> Create(string name, string desc, string sku)
+    {
+      try
+      {
+        return Ok(this.productService.CreateProducts(name, desc, sku));
+      }
+      catch (Exception ex)
+      {
+        return Problem(ex.Message);
+      }
+
+    }
+
+    [HttpGet("UpdateProduct")]
+    public ActionResult<Product> Edit(int id, string name, string desc, string sku)
+    {
+      try
+      {
+        return Ok(this.productService.UpdateProducts(id, name, desc, sku));
+      }
+      catch (Exception ex)
+      {
+        return Problem(ex.Message);
+      }
+    }
+
+    [HttpDelete("DeleteProduct")]
+    public ActionResult<Product> Delete(int id)
+    {
+      try
+      {
+        return Ok(this.productService.DeleteProducts(id));
+      }
+      catch (Exception ex)
+      {
+        return Problem(ex.Message);
+      }
+    }
+
+  }
 }

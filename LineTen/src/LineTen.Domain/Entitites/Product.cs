@@ -6,19 +6,27 @@ using System.Threading.Tasks;
 
 namespace LineTen.Domain.Entitites
 {
-  public class Products
+  public class Product
   {
     public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public string SKU { get; set; }
 
-    public Products(int id, string name, string desc, string sku)
+    public Product() { }
+    public Product(int id,string name, string desc, string sku)
     {
       this.Id = id;
-      this.Name = name; 
+      this.Name = name;
       this.Description = desc;
-      this.SKU = sku; 
+      this.SKU = sku;
+
+    }
+    public Product(string name, string desc, string sku)
+    {
+      this.Name = name;
+      this.Description = desc;
+      this.SKU = sku;
 
     }
   }

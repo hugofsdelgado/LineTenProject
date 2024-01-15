@@ -9,8 +9,8 @@ namespace LineTen.Domain.Test.Products
     [Fact(DisplayName = "FirstTest")]
     public void FirstTest()
     {
-      Entitites.Products product1 = new Entitites.Products(1, "Name1", "Desc1", "123456");
-      Entitites.Products product2 = new Entitites.Products(2, "Name1", "Desc1", "123456");
+      Entitites.Product product1 = new Entitites.Product(1, "Name1", "Desc1", "123456");
+      Entitites.Product product2 = new Entitites.Product(2, "Name1", "Desc1", "123456");
 
 
       Assert.Equal(product1.Name, product2.Name);
@@ -27,8 +27,8 @@ namespace LineTen.Domain.Test.Products
     public void SecondtTest(int id, string name, string desc, string sku)
     {
 
-      var expectedProduct = new Entitites.Products(2, "Name2", "Desc2", "123456");
-      var actualProduct = new Entitites.Products(id, name, desc, sku);
+      var expectedProduct = new Entitites.Product(2, "Name2", "Desc2", "123456");
+      var actualProduct = new Entitites.Product(id, name, desc, sku);
 
       actualProduct.ToExpectedObject().ShouldMatch(expectedProduct);
 

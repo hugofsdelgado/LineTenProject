@@ -18,6 +18,7 @@
     <ProjectReference Include="..\LineTen.Application\LineTen.Application.csproj" />
     <ProjectReference Include="..\LineTen.Infrastructure\LineTen.Infrastructure.csproj" />
     <ProjectReference Include="..\src\LineTen.Domain\LineTen.Domain.csproj" />
+    <ProjectReference Include="..\test\LineTen.Domain.Test\LineTen.Domain.Test.csproj" />
   </ItemGroup>
 
 </Project>
