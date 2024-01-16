@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineTen.Domain.Test", "test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineTen.Domain", "src\LineTen.Domain\LineTen.Domain.csproj", "{A352D9C0-6CC9-4F30-92A9-347C8540FE8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineTen.Application", "LineTen.Application\LineTen.Application.csproj", "{F3C92B3C-3873-4DE5-A7AC-CB1B60EEC0EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineTen.Application", "LineTen.Application\LineTen.Application.csproj", "{F3C92B3C-3873-4DE5-A7AC-CB1B60EEC0EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineTen.Infrastructure", "LineTen.Infrastructure\LineTen.Infrastructure.csproj", "{8A3ECD60-1D23-4CA3-823C-B4290393627D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineTen.Infrastructure", "LineTen.Infrastructure\LineTen.Infrastructure.csproj", "{8A3ECD60-1D23-4CA3-823C-B4290393627D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineTen.API", "LineTen.API\LineTen.API.csproj", "{DE5F41D3-E68E-4875-A4AD-6F0D1BF5FAE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineTen.API", "LineTen.API\LineTen.API.csproj", "{DE5F41D3-E68E-4875-A4AD-6F0D1BF5FAE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD8EFEBA-1EFC-428D-A10F-51BCC7859CB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

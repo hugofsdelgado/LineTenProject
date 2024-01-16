@@ -5,20 +5,19 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-EXPOSE 5000
+EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["LineTen.API/LineTen.API.csproj", "LineTen.API/"]
-RUN dotnet restore "LineTen.API/LineTen.API.csproj"
+COPY ["LineTen.API.csproj", "./"]
+RUN dotnet restore "./LineTen.API.csproj"
 COPY . .
-WORKDIR "/src/LineTen.API"
+WORKDIR "/src/"
 RUN dotnet build "LineTen.API.csproj" -c Release -o /app/build
-
 FROM build AS publish
-RUN dotnet publish "LineTen.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
+RUN dotnet publish "LineTen.API.csproj" -c Release -o /app/publish
+# Build the final image using the base image and the published output
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
