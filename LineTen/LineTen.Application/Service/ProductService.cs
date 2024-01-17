@@ -10,30 +10,30 @@ namespace LineTen.Application.Interface
 {
   public class ProductService : IProductService
   {
-    private readonly IProductRepository memberRepository;
-    public ProductService(IProductRepository memberRepository)
+    private readonly IProductRepository productRepository;
+    public ProductService(IProductRepository productRepository)
     {
-      this.memberRepository = memberRepository;
+      this.productRepository = productRepository;
     }
 
     public Product CreateProducts(string name, string desc, string sku)
     {
-      return this.memberRepository.CreateProducts(name, desc, sku);
+      return this.productRepository.CreateProducts(name, desc, sku);
     }
 
     public Product DeleteProducts(int id)
     {
-      return this.memberRepository.DeleteProducts(id);
+      return this.productRepository.DeleteProducts(id);
+    }
+
+    public List<Product> GetProducts()
+    {
+      return this.productRepository.GetProducts();
     }
 
     public Product UpdateProducts(int id, string name, string desc, string sku)
     {
-      return this.memberRepository.UpdateProducts(id, name, desc, sku);
-    }
-
-    List<Product> IProductService.GetProducts()
-    {
-      return this.memberRepository.GetProducts();
+      return this.productRepository.UpdateProducts(id, name, desc, sku);
     }
   }
 }

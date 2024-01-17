@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LineTen.API.Controllers
 {
+  [Route("api/[controller]")]
+  [ApiController]
   public class ProductController : Controller
   {
     private readonly IProductService productService;
@@ -13,13 +15,13 @@ namespace LineTen.API.Controllers
       this.productService = productService;
     }
 
-    [HttpGet("GetProducts")]
+    [HttpGet]
     public List<Product> GetProducts()
     {
       return this.productService.GetProducts();
     }
 
-    [HttpPost("CreateProduct")]
+    [HttpPost]
     public ActionResult<Product> Create(string name, string desc, string sku)
     {
       try
@@ -33,7 +35,7 @@ namespace LineTen.API.Controllers
 
     }
 
-    [HttpGet("UpdateProduct")]
+    [HttpPut]
     public ActionResult<Product> Edit(int id, string name, string desc, string sku)
     {
       try
@@ -46,7 +48,7 @@ namespace LineTen.API.Controllers
       }
     }
 
-    [HttpDelete("DeleteProduct")]
+    [HttpDelete]
     public ActionResult<Product> Delete(int id)
     {
       try
