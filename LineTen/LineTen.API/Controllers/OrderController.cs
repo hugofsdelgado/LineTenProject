@@ -5,71 +5,60 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LineTen.API.Controllers
 {
-  [Route("api/[controller]")]
-  [ApiController]
-  public class OrderController : Controller
-  {
-    private readonly IOrderService OrderService;
-    private readonly ICustomerService CustomerService;
-    private readonly IProductService ProductService;
-
-    public OrderController(IOrderService orderService, ICustomerService customerService, IProductService productService)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class OrderController : Controller
     {
-      this.OrderService = orderService;
-      this.CustomerService = customerService;
-      this.ProductService = productService;
-    }
+        private readonly IOrderService OrderService;
 
-    [HttpGet]
-    public List<Orders> GetOrders()
-    {
-      return this.OrderService.GetOrders();
-    }
+        public OrderController(IOrderService orderService)
+        {
+            this.OrderService = orderService;
+        }
 
-    [HttpPost]
-    public ActionResult<Orders> Create(string product, string customer)
-    {
-      try
-      {
-        int productId = ProductService.GetProducts().FirstOrDefault(x => x.Name == product).Id;
-        int customerId = CustomerService.GetCustomers().FirstOrDefault(x => x.FirstName == customer).Id;
-        return Ok(this.OrderService.CreateOrder(productId, customerId, Orders.OrderStatus.ordered));
-      }
-      catch (Exception ex)
-      {
-        return Problem(ex.Message, statusCode: 500);
-      }
+        [HttpGet]
+        public List<Orders> GetOrders()
+        {
+            return this.OrderService.GetOrders();
+        }
 
-    }
+        [HttpPost]
+        public ActionResult<Orders> Create(OrderAction createOrder)
+        {
+            try
+            {
+                return Ok(this.OrderService.CreateOrder(createOrder));
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message, statusCode: 500);
+            }
+        }
 
-    [HttpPut]
-    public ActionResult<Orders> Edit(string product, string customer, int status)
-    {
-      try
-      {
-        int productId = ProductService.GetProducts().FirstOrDefault(x => x.Name == product).Id;
-        int customerId = CustomerService.GetCustomers().FirstOrDefault(x => x.FirstName == customer).Id;
-        return Ok(this.OrderService.CreateOrder(productId, customerId, (Orders.OrderStatus)status));
-      }
-      catch (Exception ex)
-      {
-        return Problem(ex.Message, statusCode: 500);
-      }
-    }
+        [HttpPut]
+        public ActionResult<Orders> Edit(OrderAction updateOrder)
+        {
+            try
+            {
+                return Ok(this.OrderService.UpdateOrder(updateOrder));
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message, statusCode: 500);
+            }
+        }
 
-    [HttpDelete]
-    public ActionResult<Orders> Delete(string product, string customer)
-    {
-      try
-      {
-        int productId = ProductService.GetProducts().FirstOrDefault(x => x.Name == product).Id;
-        int customerId = CustomerService.GetCustomers().FirstOrDefault(x => x.FirstName == customer).Id;
-        return Ok(this.OrderService.DeleteOrder(productId, customerId));
-      }
-      catch (Exception ex)
-      {
-        return Problem(ex.Message, statusCode: 500);
-      }
+        [HttpDelete]
+        public ActionResult<Orders> Delete(int productId, int customerId)
+        {
+            try
+            {
+                return Ok(this.OrderService.DeleteOrder(productId, customerId));
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message, statusCode: 500);
+            }
+        }
     }
-  }
 }

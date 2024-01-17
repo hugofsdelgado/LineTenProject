@@ -31,7 +31,7 @@ namespace LineTen.Application.Interface
       return this.productRepository.GetProducts();
     }
 
-    public Product UpdateProducts(int id, string name, string desc, string sku)
+    public Product UpdateProducts(int id, string? name, string? desc, string? sku)
     {
       return this.productRepository.UpdateProducts(id, name, desc, sku);
     }

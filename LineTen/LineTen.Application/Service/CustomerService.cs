@@ -26,7 +26,7 @@ namespace LineTen.Application.Interface
       return this.customerRepository.DeleteCustomer(id);
     }
 
-    public Customer UpdateCustomer(int id, string name, string lastname, string phone, string email)
+    public Customer UpdateCustomer(int id, string? name, string? lastname, string? phone, string? email)
     {
       return this.customerRepository.UpdateCustomer(id, name, lastname, phone, email);
     }

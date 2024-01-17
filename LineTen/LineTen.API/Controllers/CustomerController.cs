@@ -33,11 +33,10 @@ namespace LineTen.API.Controllers
       {
         return Problem(ex.Message, statusCode: 500);
       }
-
     }
 
     [HttpPut]
-    public ActionResult<Customer> Edit(int id, string name, string lastname, string phone, string email)
+    public ActionResult<Customer> Edit(int id, string? name, string? lastname, string? phone, string? email)
     {
       try
       {

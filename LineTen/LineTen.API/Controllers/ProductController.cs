@@ -36,7 +36,7 @@ namespace LineTen.API.Controllers
     }
 
     [HttpPut]
-    public ActionResult<Product> Edit(int id, string name, string desc, string sku)
+    public ActionResult<Product> Edit(int id, string? name, string? desc, string? sku)
     {
       try
       {

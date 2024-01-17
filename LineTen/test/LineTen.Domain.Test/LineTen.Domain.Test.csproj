@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -10,9 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Customers\**" />
+    <Compile Remove="Orders\**" />
+    <EmbeddedResource Remove="Customers\**" />
+    <EmbeddedResource Remove="Orders\**" />
+    <None Remove="Customers\**" />
+    <None Remove="Orders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="ExpectedObjects" Version="3.5.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,12 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Orders\" />
+    <ProjectReference Include="..\..\LineTen.Application\LineTen.Application.csproj" />
+    <ProjectReference Include="..\..\LineTen.Infrastructure\LineTen.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\LineTen.Domain\LineTen.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\LineTen.Domain\LineTen.Domain.csproj" />
+    <Folder Include="Products\" />
   </ItemGroup>
 
 </Project>
